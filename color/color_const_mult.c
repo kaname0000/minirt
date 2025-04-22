@@ -19,6 +19,6 @@ t_color color_const_mult(t_color c,double k)
 
     color.red=c.red * k;
     color.green=c.green * k;
-    color.blue=c.bule * k;
+    color.blue=c.blue * k;
     return(color);
 }

@@ -13,7 +13,7 @@
 #include "vec.h"
 
 // 差
-double vec_sub(t_vec v1,t_vec v2)
+t_vec vec_sub(t_vec v1,t_vec v2)
 {
     t_vec vec;
 

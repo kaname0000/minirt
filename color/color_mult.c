@@ -19,6 +19,6 @@ t_color color_mult(t_color c1,t_color c2)
 
     color.red=c1.red * c2.red;
     color.green=c1.green * c2.green;
-    color.blue=c1.bule * c2.blue;
+    color.blue=c1.blue * c2.blue;
     return(color);
 }
