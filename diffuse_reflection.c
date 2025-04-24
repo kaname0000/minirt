@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   diffuse_reflection.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 04:29:45 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/22 04:29:45 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/25 05:15:49 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/25 05:15:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "minirt.h"
 
-typedef struct s_color
+double diffuse_reflection(t_vec light, t_vec intersection, t_vec sphere)
 {
-    double red;
-    double green;
-    double blue;
-}t_color;
-
-t_color color_init(double red,double green,double blue);
-t_color color_normalize(t_color c);
-t_color color_add(t_color c1,t_color c2);
-t_color color_mult(t_color c1,t_color c2);
-int apply_diffuse_color(double diffuse);
-
-
-#endif
+    t_vec N = vec_normalize(vec_sub(intersection, sphere));
+    t_vec L = vec_normalize(vec_sub(light,intersection));
+    double R = vec_dot(N, L);
+    if(is_zerovec(intersection))
+        return(0);
+    if (R < 0)
+        R = 0;
+    return (R+0.1);
+}

@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include "mlx/mlx.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
 enum e_objtype{
     SP,
@@ -62,5 +63,9 @@ typedef struct s_world {
     t_color    ambient;  
     t_list      *lights;
 }               t_world;
+
+t_vec hit_intersection_s(t_vec sphere,t_vec camera,t_vec screen,double r);
+bool is_zerovec(t_vec vec);
+double diffuse_reflection(t_vec light,t_vec intersection,t_vec sphere);
 
 #endif

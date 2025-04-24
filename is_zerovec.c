@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   is_zerovec.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 04:29:45 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/22 04:29:45 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/25 05:46:19 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/25 05:46:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "minirt.h"
 
-typedef struct s_color
+bool is_zerovec(t_vec vec)
 {
-    double red;
-    double green;
-    double blue;
-}t_color;
-
-t_color color_init(double red,double green,double blue);
-t_color color_normalize(t_color c);
-t_color color_add(t_color c1,t_color c2);
-t_color color_mult(t_color c1,t_color c2);
-int apply_diffuse_color(double diffuse);
-
-
-#endif
+    return(vec.x == 0 && vec.y == 0 && vec.z == 0);
+}

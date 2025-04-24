@@ -28,11 +28,15 @@ MLX = $(MLXDIR)/libmlx.a
 LMLX = -L$(MLXDIR) -lmlx -lXext -lX11
 
 SRCS = main.c\
+		hit_point.c\
+		diffuse_reflection.c\
+		is_zerovec.c\
 		color/color_add.c\
 		color/color_const_mult.c\
 		color/color_init.c\
 		color/color_mult.c\
 		color/color_normalize.c\
+		color/diffuse_color.c\
 		vector/vec_add.c\
 		vector/vec_cross.c\
 		vector/vec_dot.c\
@@ -60,6 +64,9 @@ $(MLX):
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+run:all
+	./$(MANDATORY)
 
 clean:
 	rm -f $(OBJS) 
