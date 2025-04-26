@@ -30,7 +30,10 @@ LMLX = -L$(MLXDIR) -lmlx -lXext -lX11
 SRCS = main.c\
 		hit_point.c\
 		diffuse_reflection.c\
+		specular_reflection.c\
+		ambient_light.c\
 		is_zerovec.c\
+		print_vec.c\
 		color/color_add.c\
 		color/color_const_mult.c\
 		color/color_init.c\

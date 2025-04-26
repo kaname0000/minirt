@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_add.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/04/22 03:55:03 by marvin            #+#    #+#             */
 /*   Updated: 2025/04/22 03:55:03 by marvin           ###   ########.fr       */
 /*                                                                            */
@@ -12,13 +15,14 @@
 
 #include "vec.h"
 
-//和
-t_vec   vec_add(t_vec v1,t_vec v2)
-{
-    t_vec vec;
 
-    vec.x=v1.x + v2.x;
-    vec.y=v1.y + v2.y;
-    vec.z=v1.z + v2.z;
-    return(vec);
+//和
+t_vec	vec_add(t_vec v1, t_vec v2)
+{
+	t_vec vec;
+
+	vec.x = v1.x + v2.x;
+	vec.y = v1.y + v2.y;
+	vec.z = v1.z + v2.z;
+	return (vec);
 }

@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   is_zerovec.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/04/25 05:46:19 by marvin            #+#    #+#             */
 /*   Updated: 2025/04/25 05:46:19 by marvin           ###   ########.fr       */
 /*                                                                            */
@@ -12,7 +15,8 @@
 
 #include "minirt.h"
 
-bool is_zerovec(t_vec vec)
+
+bool	is_zerovec(t_vec vec)
 {
-    return(vec.x == 0 && vec.y == 0 && vec.z == 0);
+	return (vec.x == 0 && vec.y == 0 && vec.z == 0);
 }

@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_mult.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025/04/22 04:03:07 by marvin            #+#    #+#             */
 /*   Updated: 2025/04/22 04:03:07 by marvin           ###   ########.fr       */
 /*                                                                            */
@@ -12,13 +15,14 @@
 
 #include "vec.h"
 
-// 定数倍
-t_vec vec_mult(t_vec v,double k)
-{
-    t_vec vec;
 
-    vec.x=v.x * k;
-    vec.y=v.y * k;
-    vec.z=v.z * k;
-    return(vec);
+// 定数倍
+t_vec	vec_mult(t_vec v, double k)
+{
+	t_vec vec;
+
+	vec.x = v.x * k;
+	vec.y = v.y * k;
+	vec.z = v.z * k;
+	return (vec);
 }

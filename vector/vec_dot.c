@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_dot.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025/04/22 04:05:05 by marvin            #+#    #+#             */
 /*   Updated: 2025/04/22 04:05:05 by marvin           ###   ########.fr       */
 /*                                                                            */
@@ -12,8 +15,9 @@
 
 #include "vec.h"
 
+
 // 内積
-double  vec_dot(t_vec v1,t_vec v2)
+double	vec_dot(t_vec v1, t_vec v2)
 {
-    return(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }

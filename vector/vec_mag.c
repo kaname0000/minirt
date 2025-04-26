@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_mag.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/04/22 04:19:33 by marvin            #+#    #+#             */
 /*   Updated: 2025/04/22 04:19:33 by marvin           ###   ########.fr       */
 /*                                                                            */
@@ -12,8 +15,9 @@
 
 #include "vec.h"
 
+
 // 大きさ
-double vec_mag(t_vec v)
+double	vec_mag(t_vec v)
 {
-    return(sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+	return (sqrt(vec_dot(v, v)));
 }
