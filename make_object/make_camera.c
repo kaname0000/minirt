@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   diffuse_color.c                                    :+:      :+:    :+:   */
+/*   make_camera.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:06:40 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 18:06:43 by okaname          ###   ########.fr       */
+/*   Created: 2025/04/27 19:03:59 by okaname           #+#    #+#             */
+/*   Updated: 2025/04/27 19:18:50 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "object.h"
 
-int	apply_diffuse_color(double R, t_color color)
+t_camera	*make_camera(t_vec pos, t_vec dir, double fob)
 {
-	if (R == 0.0)
-		return (0x006495EC);
-	if (R > 1.0)
-		R = 1.0;
-	return ((int)(color.red * R) << 16 | (int)(color.green
-			* R) << 8 | (int)(color.blue * R));
+	t_camera	*camera;
+
+	camera = (t_camera *)malloc(sizeof(t_camera));
+	if (camera == NULL)
+		return (NULL);
+	camera->pos = pos;
+	camera->dir = dir;
+	camera->fov = fob;
+	return (camera);
 }

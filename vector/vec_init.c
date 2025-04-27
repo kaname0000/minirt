@@ -2,24 +2,20 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_init.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025/04/22 03:48:25 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/22 03:48:25 by marvin           ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/27 18:08:40 by okaname           #+#    #+#             */
+/*   Updated: 2025/04/27 18:08:42 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vec.h"
 
-
 // 作成
 t_vec	vec_init(double x, double y, double z)
 {
-	t_vec vec;
+	t_vec	vec;
 
 	vec.x = x;
 	vec.y = y;

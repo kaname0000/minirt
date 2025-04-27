@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   diffuse_color.c                                    :+:      :+:    :+:   */
+/*   vec_normlaize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:06:40 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 18:06:43 by okaname          ###   ########.fr       */
+/*   Created: 2025/04/27 18:09:49 by okaname           #+#    #+#             */
+/*   Updated: 2025/04/27 18:10:06 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "vec.h"
 
-int	apply_diffuse_color(double R, t_color color)
+// 正規化
+t_vec	vec_normalize(t_vec v)
 {
-	if (R == 0.0)
-		return (0x006495EC);
-	if (R > 1.0)
-		R = 1.0;
-	return ((int)(color.red * R) << 16 | (int)(color.green
-			* R) << 8 | (int)(color.blue * R));
+	t_vec	vec;
+	double	mag;
+
+	mag = vec_mag(v);
+	vec.x = v.x / mag;
+	vec.y = v.y / mag;
+	vec.z = v.z / mag;
+	return (vec);
 }

@@ -2,24 +2,20 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_cross.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2025/04/22 04:07:27 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/22 04:07:27 by marvin           ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/27 18:08:00 by okaname           #+#    #+#             */
+/*   Updated: 2025/04/27 18:08:03 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vec.h"
 
-
 // 外積
 t_vec	vec_cross(t_vec v1, t_vec v2)
 {
-	t_vec vec;
+	t_vec	vec;
 
 	vec.x = v1.y * v2.z - v1.z * v2.y;
 	vec.y = v1.z * v2.x - v1.x * v2.z;

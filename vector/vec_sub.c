@@ -2,24 +2,20 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vec_sub.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025/04/22 04:02:13 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/22 04:02:13 by marvin           ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/27 18:10:18 by okaname           #+#    #+#             */
+/*   Updated: 2025/04/27 18:10:20 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vec.h"
 
-
 // 差
 t_vec	vec_sub(t_vec v1, t_vec v2)
 {
-	t_vec vec;
+	t_vec	vec;
 
 	vec.x = v1.x - v2.x;
 	vec.y = v1.y - v2.y;

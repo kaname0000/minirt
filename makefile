@@ -34,6 +34,8 @@ SRCS = main.c\
 		ambient_light.c\
 		is_zerovec.c\
 		print_vec.c\
+		pixel_put.c\
+		raytracing.c\
 		color/color_add.c\
 		color/color_const_mult.c\
 		color/color_init.c\
