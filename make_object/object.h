@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:37:33 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 19:18:53 by okaname          ###   ########.fr       */
+/*   Updated: 2025/04/29 22:31:53 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ enum				e_objtype
 typedef struct s_sphere
 {
 	t_vec			pos;
-	double			dia;
+	double			rad;
 	t_color			color;
 }					t_sphere;
 
@@ -72,6 +72,14 @@ typedef struct s_light
 	t_color			color;
 	struct s_light	*next;
 }					t_light;
+
+typedef struct s_inset
+{
+	t_vec			insec;
+	t_vec			normal;
+	t_color			color;
+	int				flag;
+}					t_insec;
 
 t_obj				*make_cyl(t_vec pos, double dia, double height,
 						t_color color);

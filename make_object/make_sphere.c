@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 16:27:43 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 18:52:47 by okaname          ###   ########.fr       */
+/*   Updated: 2025/04/29 22:00:21 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_obj	*make_sphere(t_vec pos, double dia, t_color color)
 	obj = (t_obj *)malloc(sizeof(t_obj));
 	if (obj == NULL)
 		return (NULL);
-	sphere.dia = dia;
+	sphere.rad = dia / 2.0;
 	sphere.pos = pos;
 	sphere.color = color;
 	obj->type = SPHERE;
