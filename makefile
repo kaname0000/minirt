@@ -12,7 +12,7 @@
 
 CC = cc
 # CFLAGS = -O2 -I./includes 
-CFLAGS = -Wall -Wextra -Werror -I./includes 
+CFLAGS = -Wall -Wextra -Werror -I./includes -g
 LDFLAGS = -lm
 
 MANDATORY = minirt
@@ -36,6 +36,7 @@ SRCS = main.c\
 		print_vec.c\
 		pixel_put.c\
 		raytracing.c\
+		ray_dir.c\
 		color/color_add.c\
 		color/color_const_mult.c\
 		color/color_init.c\
@@ -50,6 +51,11 @@ SRCS = main.c\
 		vector/vec_mult.c\
 		vector/vec_normalize.c\
 		vector/vec_sub.c\
+		make_object/make_cylinder.c\
+		make_object/make_camera.c\
+		make_object/make_light.c\
+		make_object/make_plane.c\
+		make_object/make_sphere.c\
 
 OBJS = $(SRCS:.c=.o)
 

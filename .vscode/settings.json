@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "color.h": "c",
-        "minirt.h": "c"
+        "minirt.h": "c",
+        "vec.h": "c"
     }
 }

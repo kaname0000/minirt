@@ -6,11 +6,12 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:06:40 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 18:06:43 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/01 21:01:20 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
+#include <stdio.h>
 
 int	apply_diffuse_color(double R, t_color color)
 {

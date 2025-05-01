@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:12:49 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/28 03:47:47 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/01 21:29:07 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 void	make_world(t_world *world)
 {
-	(void)world;
+	world->cameras = make_camera(vec_init(0, -5, -5), vec_init(0, 0, 1), 20,
+			world->screen_width);
+	world->lights = make_light(vec_init(-5, -5, -5), 1, color_init(100, 100,
+				100));
+	world->objects = make_sphere(vec_init(0, 0, 5), 2, color_init(100, 100,
+				100));
+	world->objects->next = make_sphere(vec_init(0, 0, 9), 2, color_init(255,
+				100, 100));
 }
 
 int	main(void)
@@ -34,6 +41,7 @@ int	main(void)
 			world.screen_height);
 	world.addr = mlx_get_data_addr(world.img, &world.bits_per_pixel,
 			&world.line_length, &world.endain);
+	make_world(&world);
 	raytracing(&world);
 	mlx_put_image_to_window(world.mlx, world.win, world.img, 0, 0);
 	mlx_loop(world.mlx);

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_normalize.c                                  :+:      :+:    :+:   */
+/*   ray_dir.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:05:55 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/01 20:49:36 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/01 16:54:02 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/01 20:35:49 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "minirt.h"
 
-// 範囲を0~255⇒0~1
-t_color	color_normalize(t_color c)
+t_vec	ray_dir(t_world *world, t_camera *camera, int i, int j)
 {
-	t_color	color;
+	t_vec	dir;
+	t_vec	p;
+	t_vec	px;
+	t_vec	py;
 
-	color.red = c.red / 255;
-	color.green = c.green / 255;
-	color.blue = c.blue / 255;
-	return (color);
+	px = vec_mult(camera->sx, (double)i - (world->screen_width / 2));
+	py = vec_mult(camera->sy, (double)j - (world->screen_height / 2));
+	p = vec_add(px, py);
+	dir = vec_normalize(vec_add(p, camera->view));
+	return (dir);
 }

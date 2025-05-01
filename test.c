@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_normalize.c                                  :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:05:55 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/01 20:49:36 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/01 20:39:49 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/01 20:40:36 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include <math.h>
+#include <stdio.h>
 
-// 範囲を0~255⇒0~1
-t_color	color_normalize(t_color c)
+int	main(void)
 {
-	t_color	color;
-
-	color.red = c.red / 255;
-	color.green = c.green / 255;
-	color.blue = c.blue / 255;
-	return (color);
+	printf("%f\n", tan(30));
+	return (0);
 }

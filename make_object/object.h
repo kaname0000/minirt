@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:37:33 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/29 22:31:53 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/01 19:53:01 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "../color/color.h"
 # include "../vector/vec.h"
+# include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 enum				e_objtype
@@ -63,6 +65,9 @@ typedef struct s_camera
 	t_vec			pos;
 	t_vec			dir;
 	double			fov;
+	t_vec			sx;
+	t_vec			sy;
+	t_vec			view;
 }					t_camera;
 
 typedef struct s_light
@@ -85,6 +90,7 @@ t_obj				*make_cyl(t_vec pos, double dia, double height,
 						t_color color);
 t_obj				*make_plane(t_vec pos, t_vec normal, t_color color);
 t_obj				*make_sphere(t_vec pos, double dia, t_color color);
-t_camera			*make_camera(t_vec pos, t_vec dir, double fob);
+t_camera			*make_camera(t_vec pos, t_vec dir, double fob, int width);
+t_light				*make_light(t_vec pos, double brightness, t_color color);
 
 #endif
