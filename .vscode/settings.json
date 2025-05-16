@@ -2,6 +2,13 @@
     "files.associations": {
         "color.h": "c",
         "minirt.h": "c",
-        "vec.h": "c"
+        "vec.h": "c",
+        "paser.h": "c",
+        "libft.h": "c",
+        "ctype.h": "c",
+        "get_next_line.h": "c",
+        "stdlib.h": "c",
+        "object.h": "c",
+        "stdio.h": "c"
     }
 }

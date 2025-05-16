@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_cylinder.c                                    :+:      :+:    :+:   */
+/*   print_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:54:46 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 18:58:23 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/17 00:42:03 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/17 00:44:14 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "object.h"
+#include "color.h"
+#include <stdio.h>
 
-t_obj	*make_cylinder(t_vec pos, double dia, double height, t_color color)
+void	print_color(t_color color)
 {
-	t_obj		*obj;
-	t_cylinder	cylinder;
-
-	obj = (t_obj *)malloc(sizeof(t_obj));
-	if (obj == NULL)
-		return (NULL);
-	cylinder.pos = pos;
-	cylinder.dia = dia;
-	cylinder.height = height;
-	cylinder.color = color;
-	obj->type = CYLINDER;
-	obj->u_object.cylinder = cylinder;
-	obj->next = NULL;
-	return (obj);
+	printf("r = %f,g = %f,b = %f\n", color.red, color.green, color.blue);
 }

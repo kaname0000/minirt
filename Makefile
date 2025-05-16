@@ -28,21 +28,26 @@ MLX = $(MLXDIR)/libmlx.a
 LMLX = -L$(MLXDIR) -lmlx -lXext -lX11
 
 SRCS = main.c\
-		hit_point.c\
-		diffuse_reflection.c\
-		specular_reflection.c\
-		ambient_light.c\
 		is_zerovec.c\
-		print_vec.c\
 		pixel_put.c\
-		raytracing.c\
-		ray_dir.c\
+		light/ambient_light.c\
+		light/diffuse_reflection.c\
+		light/specular_reflection.c\
+		light/raytracing.c\
+		light/ray_dir.c\
+		light/shadow.c\
+		insec_point/insec_ray_cylinder.c\
+		insec_point/insec_ray_plane.c\
+		insec_point/insec_ray_sphere.c\
+		insec_point/insec_ray_triangle.c\
+		insec_point/trace_nearest.c\
 		color/color_add.c\
 		color/color_const_mult.c\
 		color/color_init.c\
 		color/color_mult.c\
 		color/color_normalize.c\
-		color/diffuse_color.c\
+		color/cal_color.c\
+		color/print_color.c\
 		vector/vec_add.c\
 		vector/vec_cross.c\
 		vector/vec_dot.c\
@@ -51,11 +56,17 @@ SRCS = main.c\
 		vector/vec_mult.c\
 		vector/vec_normalize.c\
 		vector/vec_sub.c\
-		make_object/make_cylinder.c\
-		make_object/make_camera.c\
-		make_object/make_light.c\
-		make_object/make_plane.c\
-		make_object/make_sphere.c\
+		vector/print_vec.c\
+		paser/make_object/token_to_color.c\
+		paser/make_object/token_to_vec.c\
+		paser/make_object/make_cylinder.c\
+		paser/make_object/make_ambient.c\
+		paser/make_object/make_camera.c\
+		paser/make_object/make_light.c\
+		paser/make_object/make_plane.c\
+		paser/make_object/make_sphere.c\
+		paser/make_object/make_triangle.c\
+		paser/paser.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -65,7 +76,7 @@ $(MANDATORY): $(LIBFT) $(PRINTF) $(MLX) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) $(LMLX) $(LDFLAGS) -o $@
 
 $(LIBFT):
-	make -C $(LIBFTDIR)
+	make -C $(LIBFTDIR) bonus
 
 $(PRINTF):
 	make -C $(PRINTFDIR)

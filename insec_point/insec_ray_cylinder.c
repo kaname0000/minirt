@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_light.c                                       :+:      :+:    :+:   */
+/*   insec_ray_cylinder.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:10:01 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/01 19:44:10 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/11 15:57:34 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/11 15:57:51 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "object.h"
+#include "../minirt.h"
 
-t_light	*make_light(t_vec pos, double brightness, t_color color)
+t_vec	get_cylinder_normal(t_vec insec, t_obj *obj)
 {
-	t_light	*light;
+	(void)insec;
+	(void)obj;
+	return (vec_init(0, 0, 0));
+}
 
-	light = (t_light *)malloc(sizeof(t_light));
-	if (light == NULL)
-		return (NULL);
-	light->pos = pos;
-	light->brightness = brightness;
-	light->color = color;
-	light->next = NULL;
-	return (light);
+double	intersect_ray_cylinder(t_ray ray, t_cylinder cylinder)
+{
+	(void)ray;
+	(void)cylinder;
+	return (0);
 }

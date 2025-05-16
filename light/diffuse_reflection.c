@@ -6,38 +6,24 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 16:44:15 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/01 20:52:18 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/17 00:53:58 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
-// double	diffuse_reflection(t_vec light, t_vec intersection, t_vec sphere)
-// {
-// 	t_vec	n;
-// 	t_vec	l;
-// 	double	r;
-
-// 	n = vec_normalize(vec_sub(intersection, sphere));
-// 	l = vec_normalize(vec_sub(light, intersection));
-// 	r = vec_dot(n, l);
-// 	if (is_zerovec(intersection))
-// 		return (0);
-// 	if (r < 0)
-// 		r = 0;
-// 	return (r * 0.69);
-// }
-
-double	diffuse_reflection(t_light *light, t_insec insec)
+t_color	diffuse_reflection(t_light *light, t_insec insec, int type)
 {
 	t_vec	l;
 	double	r;
 
 	if (!insec.flag)
-		return (0);
+		return (color_init(0, 0, 0));
 	l = vec_normalize(vec_sub(light->pos, insec.insec));
 	r = vec_dot(insec.normal, l);
+	if ((type == PLANE || type == TRIANGLE) && r < 0)
+		r = -r;
 	if (r < 0)
 		r = 0;
-	return (r * 0.69);
+	return (color_mult(light->color, color_const_mult(insec.color, r)));
 }

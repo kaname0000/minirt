@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_init.c                                       :+:      :+:    :+:   */
+/*   insec_ray_plane.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:04:50 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/16 22:52:31 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/11 15:56:06 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/11 18:09:04 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "../minirt.h"
 
-// 作成
-t_color	color_init(double red, double green, double blue)
+double	intersect_ray_plane(t_ray ray, t_plane plane)
 {
-	t_color	color;
+	double	t;
+	double	n;
 
-	color.red = red;
-	color.green = green;
-	color.blue = blue;
-	return (color);
+	n = vec_dot(ray.dir, plane.normal);
+	if (n < 1e-6)
+		return (0);
+	t = vec_dot(vec_sub(plane.pos, ray.start), plane.normal) / n;
+	if (t <= 0)
+		return (0);
+	return (t);
 }

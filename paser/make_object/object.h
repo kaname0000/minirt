@@ -6,15 +6,16 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:37:33 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/01 19:53:01 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/17 00:25:13 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_H
 # define OBJECT_H
 
-# include "../color/color.h"
-# include "../vector/vec.h"
+# include "../../color/color.h"
+# include "../../libft/libft.h"
+# include "../../vector/vec.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -23,7 +24,8 @@ enum				e_objtype
 {
 	SPHERE,
 	PLANE,
-	CYLINDER
+	CYLINDER,
+	TRIANGLE
 };
 
 typedef struct s_sphere
@@ -48,6 +50,15 @@ typedef struct s_cylinder
 	t_color			color;
 }					t_cylinder;
 
+typedef struct s_triangle
+{
+	t_vec			p1;
+	t_vec			p2;
+	t_vec			p3;
+	t_vec			normal;
+	t_color			color;
+}					t_triangle;
+
 typedef struct s_obj
 {
 	enum e_objtype	type;
@@ -56,6 +67,7 @@ typedef struct s_obj
 		t_sphere	sphere;
 		t_plane		plane;
 		t_cylinder	cylinder;
+		t_triangle	triangle;
 	} u_object;
 	struct s_obj	*next;
 }					t_obj;
@@ -84,13 +96,52 @@ typedef struct s_inset
 	t_vec			normal;
 	t_color			color;
 	int				flag;
+	int				type;
 }					t_insec;
 
-t_obj				*make_cyl(t_vec pos, double dia, double height,
-						t_color color);
-t_obj				*make_plane(t_vec pos, t_vec normal, t_color color);
-t_obj				*make_sphere(t_vec pos, double dia, t_color color);
-t_camera			*make_camera(t_vec pos, t_vec dir, double fob, int width);
-t_light				*make_light(t_vec pos, double brightness, t_color color);
+typedef struct s_ray
+{
+	t_vec			start;
+	t_vec			dir;
+}					t_ray;
+
+typedef struct s_world
+{
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endain;
+	int				screen_width;
+	int				screen_height;
+	t_camera		*cameras;
+	t_obj			*objects;
+	t_obj			*last_objects;
+	t_color			ambient;
+	t_light			*lights;
+}					t_world;
+
+// t_obj				*make_cylinder(t_vec pos, double dia, double height,
+// 						t_color color);
+// t_obj				*make_plane(t_vec pos, t_vec normal, t_color color);
+// t_obj				*make_sphere(t_vec pos, double dia, t_color color);
+// t_obj				*make_triangle(t_vec p1, t_vec p2, t_vec p3,
+// t_color color);
+// t_camera			*make_camera(t_vec pos, t_vec dir, double fob, int width);
+// t_light				*make_light(t_vec pos, double brightness,
+// t_color color);
+
+void				make_ambient(char **tokenlist, t_world *world);
+void				make_cylinder(char **tokenlist, t_world *world);
+void				make_plane(char **tokenlist, t_world *world);
+void				make_sphere(char **tokenlist, t_world *world);
+void				make_triangle(char **tokenlist, t_world *world);
+void				make_camera(char **tokenlist, t_world *world);
+void				make_light(char **tokenlist, t_world *world);
+
+t_vec				token_to_vec(char *token);
+t_color				token_to_color(char *token);
 
 #endif

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   diffuse_color.c                                    :+:      :+:    :+:   */
+/*   make_ambient.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:06:40 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/01 21:01:20 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/12 22:58:03 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/17 00:47:35 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
-#include <stdio.h>
+#include "object.h"
 
-int	apply_diffuse_color(double R, t_color color)
+void	make_ambient(char **tokenlist, t_world *world)
 {
-	if (R == 0.0)
-		return (0x006495EC);
-	if (R > 1.0)
-		R = 1.0;
-	return ((int)(color.red * R) << 16 | (int)(color.green
-			* R) << 8 | (int)(color.blue * R));
+	world->ambient = color_normalize(color_const_mult(token_to_color(tokenlist[2]),
+				ft_atof(tokenlist[1])));
 }

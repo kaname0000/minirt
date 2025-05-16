@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_plane.c                                       :+:      :+:    :+:   */
+/*   make_sphere.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:52:51 by okaname           #+#    #+#             */
-/*   Updated: 2025/04/27 18:54:38 by okaname          ###   ########.fr       */
+/*   Created: 2025/04/27 16:27:43 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/17 00:53:22 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
 
-t_obj	*make_plane(t_vec pos, t_vec normal, t_color color)
+void	make_sphere(char **tokenlist, t_world *world)
 {
-	t_obj	*obj;
-	t_plane	plane;
+	t_obj		*obj;
+	t_sphere	sphere;
 
 	obj = (t_obj *)malloc(sizeof(t_obj));
 	if (obj == NULL)
-		return (NULL);
-	plane.pos = pos;
-	plane.normal = normal;
-	plane.color = color;
-	obj->type = PLANE;
-	obj->u_object.plane = plane;
+		return ;
+	sphere.pos = token_to_vec(tokenlist[1]);
+	sphere.rad = ft_atof(tokenlist[2]) / 2.0;
+	sphere.color = color_normalize(token_to_color(tokenlist[3]));
+	obj->type = SPHERE;
+	obj->u_object.sphere = sphere;
 	obj->next = NULL;
-	return (obj);
+	if (world->objects == NULL)
+		world->objects = obj;
+	else
+		world->last_objects->next = obj;
+	world->last_objects = obj;
 }

@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_init.c                                       :+:      :+:    :+:   */
+/*   ambient_light.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:04:50 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/16 22:52:31 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/17 00:49:05 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/17 00:55:53 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "../minirt.h"
 
-// 作成
-t_color	color_init(double red, double green, double blue)
+t_color	ambient_light(t_color ambient, t_color obj, int flag)
 {
-	t_color	color;
-
-	color.red = red;
-	color.green = green;
-	color.blue = blue;
-	return (color);
+	if (!flag)
+		return (color_init(0, 0, 0));
+	return (color_mult(ambient, obj));
 }
