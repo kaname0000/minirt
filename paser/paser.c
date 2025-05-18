@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:21:43 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/16 23:22:48 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/18 17:17:01 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ int	paser(t_world *world, char *file)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-		{
 			return (1);
-		}
 		lines = ft_split(line, ' ');
 		free(line);
 		if (lines == NULL)

@@ -36,6 +36,7 @@ SRCS = main.c\
 		light/raytracing.c\
 		light/ray_dir.c\
 		light/shadow.c\
+		insec_point/insec_ray_aabb.c\
 		insec_point/insec_ray_cylinder.c\
 		insec_point/insec_ray_plane.c\
 		insec_point/insec_ray_sphere.c\
@@ -56,6 +57,8 @@ SRCS = main.c\
 		vector/vec_mult.c\
 		vector/vec_normalize.c\
 		vector/vec_sub.c\
+		vector/vec_min.c\
+		vector/vec_max.c\
 		vector/print_vec.c\
 		paser/make_object/token_to_color.c\
 		paser/make_object/token_to_vec.c\
@@ -67,6 +70,12 @@ SRCS = main.c\
 		paser/make_object/make_sphere.c\
 		paser/make_object/make_triangle.c\
 		paser/paser.c\
+		bvh/build_bvh.c\
+		bvh/cmp_aabb.c\
+		bvh/get_aabb.c\
+		bvh/list_to_array.c\
+		bvh/sort_obj.c\
+		bvh/surro_box.c\
 
 OBJS = $(SRCS:.c=.o)
 

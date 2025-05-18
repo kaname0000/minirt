@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:56:06 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/11 18:09:04 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/18 19:30:16 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 double	intersect_ray_plane(t_ray ray, t_plane plane)
 {
 	double	t;
-	double	n;
+	double	denominator;
 
-	n = vec_dot(ray.dir, plane.normal);
-	if (n < 1e-6)
+	denominator = vec_dot(ray.dir, plane.normal);
+	if (fabs(denominator) < EPSILON)
 		return (0);
-	t = vec_dot(vec_sub(plane.pos, ray.start), plane.normal) / n;
-	if (t <= 0)
+	t = vec_dot(vec_sub(plane.pos, ray.start), plane.normal) / denominator;
+	if (t < EPSILON)
 		return (0);
 	return (t);
 }

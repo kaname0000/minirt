@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_mult.c                                         :+:      :+:    :+:   */
+/*   surro_box.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 18:09:28 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 14:33:30 by okaname          ###   ########.fr       */
+/*   Created: 2025/05/18 14:17:36 by okaname           #+#    #+#             */
+/*   Updated: 2025/05/18 15:06:32 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec.h"
+#include "bvh.h"
 
-// 定数倍
-// t_vec	vec_mult(t_vec v, double k)
-// {
-// 	t_vec	vec;
-
-// 	vec.x = v.x * k;
-// 	vec.y = v.y * k;
-// 	vec.z = v.z * k;
-// 	return (vec);
-// }
-
-t_vec	vec_mult(t_vec v, double k)
+t_aabb	surrounding_box(t_aabb box1, t_aabb box2)
 {
-	return ((t_vec){v.x * k, v.y * k, v.z * k});
+	t_vec	small;
+	t_vec	big;
+
+	small = vec_min(box1.min, box2.min);
+	big = vec_max(box1.max, box2.max);
+	return ((t_aabb){small, big});
 }

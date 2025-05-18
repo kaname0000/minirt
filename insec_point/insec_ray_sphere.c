@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:55:26 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/11 18:09:11 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/18 19:05:32 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ double	intersect_ray_sphere(t_ray ray, t_sphere sphere)
 	d = b * b - 4 * a * c;
 	if (d <= 0)
 		return (0);
-	if ((-b - sqrt(d)) / (2.0 * a) > 0)
+	if ((-b - sqrt(d)) / (2.0 * a) > EPSILON)
 		return ((-b - sqrt(d)) / (2.0 * a));
-	if ((-b + sqrt(d)) / (2.0 * a) > 0)
+	if ((-b + sqrt(d)) / (2.0 * a) > EPSILON)
 		return ((-b + sqrt(d)) / (2.0 * a));
 	return (0);
 }

@@ -9,6 +9,9 @@
         "get_next_line.h": "c",
         "stdlib.h": "c",
         "object.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "random": "c",
+        "bvh.h": "c",
+        "mlx.h": "c"
     }
 }
