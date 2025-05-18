@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:37:33 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 16:29:58 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/18 22:41:06 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../../color/color.h"
 # include "../../libft/libft.h"
 # include "../../vector/vec.h"
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -117,6 +118,20 @@ typedef struct s_obj_array
 	int					count;
 }						t_obj_array;
 
+typedef struct s_input
+{
+	bool				move_forward;
+	bool				move_backward;
+	bool				move_left;
+	bool				move_right;
+	bool				look_left;
+	bool				look_right;
+	bool				look_up;
+	bool				look_down;
+	bool				moza_up;
+	bool				moza_down;
+}						t_input;
+
 typedef struct s_world
 {
 	void				*mlx;
@@ -135,6 +150,8 @@ typedef struct s_world
 	t_bvh_node			*bvh;
 	t_color				ambient;
 	t_light				*lights;
+	int					mosaic_size;
+	t_input				input;
 }						t_world;
 
 // t_obj				*make_cylinder(t_vec pos, double dia, double height,

@@ -28,7 +28,9 @@ MLX = $(MLXDIR)/libmlx.a
 LMLX = -L$(MLXDIR) -lmlx -lXext -lX11
 
 SRCS = main.c\
-		is_zerovec.c\
+		setup_hooks.c\
+		move_camera_pos.c\
+		move_camera_dir.c\
 		pixel_put.c\
 		light/ambient_light.c\
 		light/diffuse_reflection.c\
