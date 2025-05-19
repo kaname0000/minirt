@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shadow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 18:00:49 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 19:30:07 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/19 15:12:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,20 @@ static double	intersect_object(t_ray ray, t_obj *obj)
 
 	tmp = obj;
 	t_min = -1;
-	while (obj)
+	while (tmp)
 	{
 		t = -1;
-		if (obj->type == SPHERE)
-			t = intersect_ray_sphere(ray, obj->u_object.sphere);
-		else if (obj->type == PLANE)
-			t = intersect_ray_plane(ray, obj->u_object.plane);
-		else if (obj->type == CYLINDER)
-			t = intersect_ray_cylinder(ray, obj->u_object.cylinder);
-		else if (obj->type == TRIANGLE)
-			t = intersect_ray_triangle(ray, obj->u_object.triangle);
+		if (tmp->type == SPHERE)
+			t = intersect_ray_sphere(ray, tmp->u_object.sphere);
+		else if (tmp->type == PLANE)
+			t = intersect_ray_plane(ray, tmp->u_object.plane);
+		else if (tmp->type == CYLINDER)
+			t = intersect_ray_cylinder(ray, tmp->u_object.cylinder);
+		else if (tmp->type == TRIANGLE)
+			t = intersect_ray_triangle(ray, tmp->u_object.triangle);
 		if (t > 0 && (t_min < 0 || t < t_min))
 			t_min = t;
-		obj = obj->next;
+		tmp= tmp->next;
 	}
 	return (t_min);
 }
