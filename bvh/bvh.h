@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bvh.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:17:55 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 16:29:42 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:02:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include "../paser/paser.h"
 
 # define INF 1e5
+
+typedef struct s_sah
+{
+    int best_split;
+    int best_axis;
+}t_sah;
 
 t_aabb		get_aabb(t_obj *obj);
 t_aabb		surrounding_box(t_aabb box1, t_aabb box2);
