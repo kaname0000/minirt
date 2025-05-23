@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:12:49 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/19 22:03:28 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/23 22:45:51 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	main(int argc, char *argv[])
 	cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 	printf("raytrace: %f 秒\n", cpu_time_used);
 	start = clock();
-	// printf("計算終わったよ\n");
 	mlx_put_image_to_window(world.mlx, world.win, world.img, 0, 0);
 	setup_hooks(&world);
 	mlx_loop(world.mlx);

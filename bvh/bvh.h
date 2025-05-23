@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:17:55 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/19 21:57:16 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/23 22:46:23 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include "../parser/parser.h"
 
 # define INF 1e5
+
+typedef struct s_sah
+{
+	int		best_split;
+	int		best_axis;
+}			t_sah;
 
 t_aabb		get_aabb(t_obj *obj);
 t_aabb		surrounding_box(t_aabb box1, t_aabb box2);

@@ -6,11 +6,11 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:44:18 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 19:55:34 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/23 22:46:49 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../paser/paser.h"
+#include "../parser/parser.h"
 #include "bvh.h"
 
 static t_aabb	get_aabb_sphere(t_sphere sphere)
