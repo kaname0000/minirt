@@ -62,16 +62,16 @@ SRCS = main.c\
 		vector/vec_min.c\
 		vector/vec_max.c\
 		vector/print_vec.c\
-		paser/make_object/token_to_color.c\
-		paser/make_object/token_to_vec.c\
-		paser/make_object/make_cylinder.c\
-		paser/make_object/make_ambient.c\
-		paser/make_object/make_camera.c\
-		paser/make_object/make_light.c\
-		paser/make_object/make_plane.c\
-		paser/make_object/make_sphere.c\
-		paser/make_object/make_triangle.c\
-		paser/paser.c\
+		parser/make_object/token_to_color.c\
+		parser/make_object/token_to_vec.c\
+		parser/make_object/make_cylinder.c\
+		parser/make_object/make_ambient.c\
+		parser/make_object/make_camera.c\
+		parser/make_object/make_light.c\
+		parser/make_object/make_plane.c\
+		parser/make_object/make_sphere.c\
+		parser/make_object/make_triangle.c\
+		parser/parser.c\
 		bvh/build_bvh.c\
 		bvh/cmp_aabb.c\
 		bvh/get_aabb.c\

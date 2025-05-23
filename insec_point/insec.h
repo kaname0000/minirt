@@ -6,14 +6,14 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:58:01 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 16:29:17 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/19 21:57:34 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INSEC_H
 # define INSEC_H
 
-# include "../paser/paser.h"
+# include "../parser/parser.h"
 # include <stdbool.h>
 
 typedef struct s_inset

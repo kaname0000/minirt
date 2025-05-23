@@ -6,7 +6,7 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 16:43:06 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 21:55:44 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/19 21:57:44 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "color/color.h"
 # include "insec_point/insec.h"
 # include "mlx/mlx.h"
-# include "paser/paser.h"
+# include "parser/parser.h"
 # include "vector/vec.h"
 # include <stdbool.h>
 # include <stdio.h>

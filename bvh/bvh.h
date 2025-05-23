@@ -6,14 +6,14 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:17:55 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 16:29:42 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/19 21:57:16 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BVH_H
 # define BVH_H
 
-# include "../paser/paser.h"
+# include "../parser/parser.h"
 
 # define INF 1e5
 

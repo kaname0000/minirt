@@ -12,6 +12,7 @@
         "stdio.h": "c",
         "random": "c",
         "bvh.h": "c",
-        "mlx.h": "c"
+        "mlx.h": "c",
+        "parser.h": "c"
     }
 }

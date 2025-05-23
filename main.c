@@ -6,12 +6,12 @@
 /*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:12:49 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/18 22:22:31 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/19 22:03:28 by okaname          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include "paser/paser.h"
+#include "parser/parser.h"
 #include <stdio.h>
 
 void	input_init(t_world *world)
@@ -47,21 +47,42 @@ void	window_init(t_world *world)
 	input_init(world);
 }
 
+#include <time.h>
+
 int	main(int argc, char *argv[])
 {
 	t_world	world;
+	double	cpu_time_used;
 
+	clock_t start, end;
 	(void)argc;
 	world.screen_width = 1000;
 	world.screen_height = 1000;
 	world.objects = NULL;
 	world.mosaic_size = 1;
 	window_init(&world);
+	start = clock();
 	paser(&world, argv[1]);
+	end = clock();
+	cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("パーサー: %f 秒\n", cpu_time_used);
+	start = clock();
 	world.obj_array = list_to_array(world.objects);
+	end = clock();
+	cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("配列にする: %f 秒\n", cpu_time_used);
+	start = clock();
 	world.bvh = build_bvh(world.obj_array.obj_array, 0, world.obj_array.count);
+	end = clock();
+	cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("bvh構築: %f 秒\n", cpu_time_used);
+	start = clock();
 	raytracing(&world);
-	printf("計算終わったよ\n");
+	end = clock();
+	cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("raytrace: %f 秒\n", cpu_time_used);
+	start = clock();
+	// printf("計算終わったよ\n");
 	mlx_put_image_to_window(world.mlx, world.win, world.img, 0, 0);
 	setup_hooks(&world);
 	mlx_loop(world.mlx);
