@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 18:00:49 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/19 15:12:43 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/29 11:07:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ bool	hit_aabb(t_ray ray, t_aabb box, double max_dist)
 	double	min;
 	double	max;
 	double	temp;
+	int i;
 
 	tmin = 0.0;
 	tmax = max_dist;
-	for (int i = 0; i < 3; i++)
+	i=-1;
+	while(++i<3)
 	{
 		double t0, t1;
 		origin = (&ray.start.x)[i];

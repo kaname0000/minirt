@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_bvh.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okaname <okaname@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:02:54 by okaname           #+#    #+#             */
-/*   Updated: 2025/05/23 22:53:05 by okaname          ###   ########.fr       */
+/*   Updated: 2025/05/29 11:02:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 t_aabb	combine_aabbs(t_obj **objects, int start, int end)
 {
 	t_aabb	box;
+	int i;
 
 	box = get_aabb(objects[start]);
-	for (int i = start + 1; i < end; i++)
+	i=start;
+	while(++i<end)
 		box = surrounding_box(box, get_aabb(objects[i]));
 	return (box);
 }
@@ -39,12 +41,17 @@ t_sah	cal_sah(t_obj **objects, int start, int end)
 	int		n_left;
 	int		n_right;
 	float	cost;
+	int axis;
+	int i;
+
 
 	best_cost = 1e30f;
-	for (int axis = 0; axis < 3; axis++)
+	axis=-1;
+	while(++axis<3)
 	{
 		sort_obj(objects, start, end, axis);
-		for (int i = start + 1; i < end; i++)
+		i=start;
+		while(++i<end)
 		{
 			left_box = combine_aabbs(objects, start, i);
 			right_box = combine_aabbs(objects, i, end);
@@ -68,6 +75,7 @@ t_bvh_node	*build_bvh(t_obj **objects, int start, int end)
 	t_bvh_node	*node;
 	int			count;
 	t_sah		sah;
+	int i;
 
 	count = end - start;
 	if (count <= 0)
@@ -77,14 +85,16 @@ t_bvh_node	*build_bvh(t_obj **objects, int start, int end)
 		return (NULL);
 	if (count <= 2)
 	{
-		for (int i = start; i < end - 1; i++)
+		i=start-1;
+		while(++i<end-1)
 			objects[i]->next = objects[i + 1];
 		objects[end - 1]->next = NULL;
 		node->obj = objects[start];
 		node->left = NULL;
 		node->right = NULL;
 		node->box = get_aabb(objects[start]);
-		for (int i = start + 1; i < end; i++)
+		i=start;
+		while(++i<end)
 			node->box = surrounding_box(node->box, get_aabb(objects[i]));
 		return (node);
 	}
@@ -103,7 +113,8 @@ t_bvh_node	*build_bvh(t_obj **objects, int start, int end)
 // 	int		i;
 
 // 	box = objects[start]->box;
-// 	for (i = start + 1; i < end; i++)
+// 	i=start;
+// 	while(++i<end)
 // 		box = surrounding_box(box, objects[i]->box);
 // 	return (box);
 // }
@@ -127,6 +138,7 @@ t_bvh_node	*build_bvh(t_obj **objects, int start, int end)
 // 	int			count;
 // 	int			axis;
 // 	int			mid;
+// 	int i;
 
 // 	count = end - start;
 // 	if (count <= 0)
@@ -136,14 +148,16 @@ t_bvh_node	*build_bvh(t_obj **objects, int start, int end)
 // 		return (NULL);
 // 	if (count <= 2)
 // 	{
-// 		for (int i = start; i < end - 1; i++)
+// 		i=start-1;
+// 		while(++i<end-1)
 // 			objects[i]->next = objects[i + 1];
 // 		objects[end - 1]->next = NULL;
 // 		node->obj = objects[start];
 // 		node->left = NULL;
 // 		node->right = NULL;
 // 		node->box = get_aabb(objects[start]);
-// 		for (int i = start + 1; i < end; i++)
+// 		i=start;
+// 		while(++i<end)
 // 			node->box = surrounding_box(node->box, get_aabb(objects[i]));
 // 		return (node);
 // 	}
